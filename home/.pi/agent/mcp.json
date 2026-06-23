@@ -1,20 +1,13 @@
 {
   "mcpServers": {
-    "cf-portal": {
-      "url": "https://portal.mcp.cfdata.org/mcp",
-      "auth": "oauth",
-      "lifecycle": "lazy"
+    "context7": {
+      "type": "url",
+      "url": "https://mcp.context7.com/mcp"
     },
-    "executor": {
-      "url": "https://exe.mulroy.ai/mcp?elicitation_mode=native",
-      "auth": "oauth",
-      "lifecycle": "lazy"
-    },
-    "uidotsh": {
-      "url": "https://ui.sh/mcp?agent=pi",
-      "auth": "bearer",
-      "bearerTokenEnv": "UIDOTSH_TOKEN",
-      "lifecycle": "lazy"
+    "hubspot": {
+      "type": "url",
+      "url": "https://mcp.hubspot.com/anthropic",
+      "auth": "oauth"
     }
   }
 }

@@ -13,9 +13,11 @@
     "test:codex-fast-mode": "node --import tsx --test tests/codex-fast-mode.test.ts"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.105.0",
     "@earendil-works/pi-ai": "^0.76.0",
     "@earendil-works/pi-coding-agent": "^0.76.0",
     "@earendil-works/pi-tui": "^0.76.0",
+    "html-to-text": "^9.0.5",
     "typebox": "^1.1.38"
   }
 }

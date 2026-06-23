@@ -9,14 +9,14 @@ shell-integration = fish
 quit-after-last-window-closed = true
 
 # Font family
-font-family = MonoLisa
+font-family = GeistMono
 font-style = Regular
 font-style-italic = Regular Italic
 font-style-bold = Bold
 font-style-bold-italic = Bold Italic
 
 # Font size
-font-size = 18
+font-size = 16
 
 # Opacity of split windows
 unfocused-split-opacity = 0.97  
@@ -49,4 +49,3 @@ window-padding-y = 0
 
 # Decrease scroll sensitivity
 mouse-scroll-multiplier = 0.4
-
