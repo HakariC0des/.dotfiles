@@ -1,5 +1,5 @@
 return {
-	"hakaricodes/ts-error-translator.nvim",
+	"dmmulroy/ts-error-translator.nvim",
 	event = "VeryLazy",
 	config = function()
 		require("ts-error-translator").setup()
