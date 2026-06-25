@@ -19,7 +19,7 @@ font-style-bold-italic = Bold Italic
 font-size = 16
 
 # Opacity of split windows
-unfocused-split-opacity = 0.97  
+unfocused-split-opacity = 0.97
 
 # Set the background-opacity to be fully opaque
 background-opacity = 1.0
@@ -36,7 +36,7 @@ macos-option-as-alt = true
 macos-titlebar-proxy-icon = hidden
 
 # Always show ghostty as the title
-title = ghostty 
+title = ghostty
 
 # Window settings
 window-width = 90
@@ -49,3 +49,6 @@ window-padding-y = 0
 
 # Decrease scroll sensitivity
 mouse-scroll-multiplier = 0.4
+
+
+

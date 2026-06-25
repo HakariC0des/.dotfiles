@@ -18,7 +18,7 @@ This repository contains my personal development environment configuration, mana
 
 ```bash
 # Clone the repository
-git clone https://github.com/dmmulroy/.dotfiles.git ~/.dotfiles
+git clone https://github.com/HakariC0des/.dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 
 # Full setup (installs everything)
@@ -57,6 +57,7 @@ The `dot` command is a comprehensive management tool for your dotfiles. It handl
 ### Installation Commands
 
 #### `dot init` - Initial Setup
+
 Complete environment setup with all tools and configurations.
 
 ```bash
@@ -66,7 +67,7 @@ dot init
 # Skip SSH key generation
 dot init --skip-ssh
 
-# Skip font installation  
+# Skip font installation
 dot init --skip-font
 
 # Skip both SSH and font setup
@@ -74,6 +75,7 @@ dot init --skip-ssh --skip-font
 ```
 
 **What it does:**
+
 1. Installs Homebrew (if not present)
 2. Installs packages from Brewfiles
 3. Creates symlinks with GNU Stow
@@ -86,9 +88,11 @@ dot init --skip-ssh --skip-font
 ### Maintenance Commands
 
 #### `dot update` - Update Everything
+
 ```bash
 dot update
 ```
+
 - Pulls latest dotfiles changes (auto-detects jj vs git)
 - Updates Homebrew packages
 - Re-stows configuration files
@@ -96,10 +100,13 @@ dot update
 - Runs pi headlessly with `/skill:sync-pocock-skills` and waits for the checked-in Matt Pocock skills sync to complete
 
 #### `dot doctor` - Health Check
+
 ```bash
 dot doctor
 ```
+
 Comprehensive diagnostics including:
+
 - ✅ Homebrew installation
 - ✅ Essential tools (git, nvim, tmux, node, etc.)
 - ✅ pi installation and core development tools
@@ -109,20 +116,25 @@ Comprehensive diagnostics including:
 - ⚠️ Missing dependencies
 
 #### `dot check-packages` - Package Status
+
 ```bash
 dot check-packages
 ```
+
 Shows which packages are installed vs. missing from your Brewfiles.
 
 #### `dot retry-failed` - Retry Failed Installations
+
 ```bash
 dot retry-failed
 ```
+
 Attempts to reinstall packages that failed during initial setup.
 
 ### Performance & Development Tools
 
 #### `dot benchmark-shell` - Fish Shell Performance Benchmarking
+
 ```bash
 # Run 10 benchmarks (default)
 dot benchmark-shell
@@ -130,7 +142,7 @@ dot benchmark-shell
 # Run specific number of benchmarks
 dot benchmark-shell -r 20
 
-# Show verbose output with individual timings  
+# Show verbose output with individual timings
 dot benchmark-shell -v
 
 # Combine options
@@ -138,6 +150,7 @@ dot benchmark-shell -r 15 -v
 ```
 
 Measures Fish shell startup performance with detailed analysis:
+
 - **High-precision timing** via Python3 or Perl
 - **Performance assessment** with color-coded results (excellent ≤50ms, good ≤100ms, fair ≤200ms)
 - **Optimization tips** for slow performance
@@ -145,6 +158,7 @@ Measures Fish shell startup performance with detailed analysis:
 - **Profiling guidance** for detailed bottleneck identification
 
 **Example Output:**
+
 ```
 => Fish Shell Startup Benchmark Results
 
@@ -166,28 +180,36 @@ Performance Assessment:
 ### Utility Commands
 
 #### `dot completions` - Generate Fish Shell Completions
+
 ```bash
 dot completions
 ```
+
 Generates comprehensive Fish shell completions for the `dot` command, including:
+
 - All commands and subcommands
 - Dynamic completions for installed packages
 - Option completions with descriptions
 
 #### `dot edit` - Open in Editor
+
 ```bash
 dot edit
 ```
+
 Opens the dotfiles directory in your default editor (defined by `$EDITOR`).
 
 #### `dot stow` - Update Dotfiles Symlinks
+
 ```bash
 # Create/update symlinks for configuration files
 dot stow
 ```
+
 Re-creates symlinks from `home/` directory to your home directory (`~`). Use this after editing configuration files.
 
 #### `dot link` / `dot unlink` - Global dot Command Installation
+
 ```bash
 # Install dot command globally (add to PATH)
 dot link
@@ -195,6 +217,7 @@ dot link
 # Remove global installation
 dot unlink
 ```
+
 Makes the `dot` command available from any directory by creating a symlink in `/usr/local/bin` or `~/.local/bin`.
 
 ## Configuration
@@ -213,7 +236,7 @@ dot package list work         # List work packages only
 
 # Add packages
 dot package add git           # Add git formula to base bundle
-dot package add docker cask   # Add docker cask to base bundle  
+dot package add docker cask   # Add docker cask to base bundle
 dot package add kubectl brew work  # Add kubectl to work bundle
 
 # Update packages
@@ -230,12 +253,14 @@ dot package remove docker base  # Remove docker from base bundle only
 #### Package Files
 
 **`packages/bundle`** - Base packages for all machines:
+
 - Development tools: neovim, tmux, fish, git
 - CLI utilities: ripgrep, fd, fzf, starship
 - Applications: Arc browser, Raycast, OrbStack
 - AI tools: aider
 
 **`packages/bundle.work`** - Work-specific additions:
+
 - AWS/Kubernetes tools
 - Enterprise development tools
 
@@ -274,21 +299,24 @@ dot package remove docker base  # Remove docker from base bundle only
 ### First-Time Setup
 
 1. **Clone repository:**
+
    ```bash
-   git clone https://github.com/dmmulroy/.dotfiles.git ~/.dotfiles
+   git clone https://github.com/HakariC0des/.dotfiles.git ~/.dotfiles
    cd ~/.dotfiles
    ```
 
 2. **Run installation:**
+
    ```bash
    ./dot init
    ```
 
 3. **Restart shell or source Fish config:**
+
    ```bash
    # In Fish shell
    source ~/.config/fish/config.fish
-   
+
    # Or restart terminal
    ```
 
@@ -302,6 +330,7 @@ dot package remove docker base  # Remove docker from base bundle only
 #### Adding Packages
 
 **Method 1: Using package commands (recommended):**
+
 ```bash
 # Add package using the package command
 dot package add new-tool             # Adds to base bundle
@@ -311,6 +340,7 @@ dot package add work-tool brew work  # Adds to work bundle
 
 **Method 2: Manual editing:**
 Edit `packages/bundle` or `packages/bundle.work`:
+
 ```ruby
 # Add to packages/bundle
 brew "new-tool"
@@ -318,16 +348,19 @@ cask "new-app"
 ```
 
 Then run:
+
 ```bash
 dot init  # or brew bundle --file=./packages/bundle
 ```
 
 #### Modifying Configurations
+
 1. Edit files in `home/` directory (not your actual home directory)
 2. Re-stow changes: `dot stow` (or `dot init` for full setup)
 3. Test configuration changes
 
 #### Work-Specific Setup
+
 The system automatically applies work-specific Git configuration for repositories under `~/Code/work/`.
 
 ## Troubleshooting
@@ -335,6 +368,7 @@ The system automatically applies work-specific Git configuration for repositorie
 ### Common Issues
 
 **Command not found: `dot`**
+
 ```bash
 # Source Fish configuration
 source ~/.config/fish/config.fish
@@ -344,6 +378,7 @@ export PATH="$HOME/.dotfiles:$PATH"
 ```
 
 **Package installation failures:**
+
 ```bash
 # Check what failed
 dot check-packages
@@ -353,6 +388,7 @@ dot retry-failed
 ```
 
 **Broken symlinks:**
+
 ```bash
 # Diagnose issues
 dot doctor
@@ -362,6 +398,7 @@ dot stow
 ```
 
 **pi installation issues:**
+
 ```bash
 # Ensure Vite+ is installed, then install pi from the tool registry
 curl -fsSL https://vite.plus | bash
