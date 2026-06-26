@@ -44,5 +44,6 @@ cask "ghostty"
 cask "obs"
 cask "orbstack"
 cask "raycast"
+cask "slack"
 cask "yaak@beta"
 
